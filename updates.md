@@ -27,3 +27,10 @@ Nota: Si se encuentra un fallo, el bot caerá y no volverá a funcionar hasta nu
 WIP -> Intentar sintetizar el programa.
 
 WIP -> Configurar Raspberry Pi para que descargue el código de GitHub e inicie el bot cada vez que se reinicie.
+
+# valpha.0.4 24/01/2022
+Programa sintetizado (los teclados para Telegram se repetían innecesariamente). Mejorada la calidad de vida a la hora de jugar (El teclado desaparece una vez elegida la opción, no vuelve a aparecer hasta que se vuelva a necesitar). Ahora el programa cambia el repositorio de trabajo una vez iniciado para no subir archivos no deseados a GitHub (La base de datos, el TOKEN del bot o el ID del Admin). Ahora es posible reiniciar la Raspberry mandando el comando /admin al bot (Sólo funciona para el usuario con identificación de administrador). Se incluye un ejecutable para actualizar librerías si se incluye una nueva.
+
+WIP -> Seguir configurando la Raspberry para reiniciarse e iniciar el programa
+
+WIP -> Investigar Node-red, MQTT y la API de Twitter
