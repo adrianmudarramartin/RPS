@@ -29,7 +29,7 @@ ID_Admin = open('ID_Admin.txt','r').read() # Archivo que incluye únicamente el 
 @bot.message_handler(commands=['admin'])
 def reboot(message):
     if message.chat.id==int(ID_Admin):
-        bot.send_message('Reiniciando el sistema para actualizar...')
+        bot.send_message(int(ID_Admin), 'Reiniciando el sistema para actualizar...')
         time.sleep(10)
         os.system('reboot')
 # INICIO 
@@ -165,5 +165,5 @@ def teclado(tipo):
     return teclado
 
 # Mantenemos el bot a la escucha de mensajes
-bot.send_message(int(ID_Admin), 'El programa se encuentra operativo')
+bot.send_message(int(ID_Admin), 'El programa se encuentra operativo.')
 bot.polling(none_stop=False, interval=0, timeout=300)
