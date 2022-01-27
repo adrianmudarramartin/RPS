@@ -36,3 +36,10 @@ WIP -> Seguir configurando la Raspberry para reiniciarse e iniciar el programa
 WIP -> Investigar Node-red, MQTT y la API de Twitter
 
 SEGUNDA ACTUALIZACIÓN: Arreglado un pequeño fallo que no permitía mandar un mensaje al administrador, y por tanto, reiniciar la Raspberry.
+
+# valpha.0.5 27/01/2022
+Ahora se puede jugar con un amigo también (añadida otra interfaz completa para el desarrollo de estas partidas).
+
+WIP -> Seguir configurando la Raspberry para reiniciarse e inciar el programa (no lo consigo)
+
+WIP -> Investigar Node-red, MQTT y la API de Twitter
