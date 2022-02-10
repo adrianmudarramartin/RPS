@@ -62,7 +62,7 @@ def estadisticas(message):
         *Al mejor de 5* ('''+str(est[4]+est[5])+''' jugadas)
         Victorias: '''+str(est[4])+'''
         Derrotas: '''+str(est[5])+'''\n''', parse_mode='Markdown')
-                bot.send_message(message.chat.id, '''*TUS ESTADÍSTICAS - CONTRA JUGADOR*\n
+        bot.send_message(message.chat.id, '''*TUS ESTADÍSTICAS - CONTRA JUGADOR*\n
         *A ronda única* ('''+str(est[6]+est[7])+''' jugadas)
         Victorias: '''+str(est[6])+'''
         Derrotas: '''+str(est[7])+'''\n
