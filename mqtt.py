@@ -21,15 +21,15 @@ conexion.commit()
 
 def on_message(client, data, msg):
     # print(msg.topic + " " + str(msg.payload))
-    cursor.execute('''SELECT Nombre, MAX(V1A) FROM Principal''')
+    cursor.execute('''SELECT Nombre, MAX(V1M) FROM Principal''')
     nombre = cursor.fetchone()[0]
-    client.publish('V1A',nombre)
-    cursor.execute('''SELECT Nombre, MAX(V3A) FROM Principal''')
+    client.publish('V1M',nombre)
+    cursor.execute('''SELECT Nombre, MAX(V3M) FROM Principal''')
     nombre = cursor.fetchone()[0]
-    client.publish('V3A',nombre)
-    cursor.execute('''SELECT Nombre, MAX(V5A) FROM Principal''')
+    client.publish('V3M',nombre)
+    cursor.execute('''SELECT Nombre, MAX(V5M) FROM Principal''')
     nombre = cursor.fetchone()[0]
-    client.publish('V5A',nombre)
+    client.publish('V5M',nombre)
 
 client = mqtt.Client("")
 client.on_message = on_message
