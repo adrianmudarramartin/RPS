@@ -23,12 +23,15 @@ def on_message(client, data, msg):
     # print(msg.topic + " " + str(msg.payload))
     cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V1M) FROM Principal)''')
     nombre = cursor.fetchone()[0]
+    print(nombre)
     client.publish('V1M',nombre)
     cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V3M) FROM Principal)''')
     nombre = cursor.fetchone()[0]
+    print(nombre)
     client.publish('V3M',nombre)
     cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V5M) FROM Principal)''')
     nombre = cursor.fetchone()[0]
+    print(nombre)
     client.publish('V5M',nombre)
 
 client = mqtt.Client("")

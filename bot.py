@@ -22,6 +22,19 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS Juego_Maquina (ID_Chat PRIMARY KEY,
 cursor.execute('''CREATE TABLE IF NOT EXISTS Juego_Amigo (ID_Chat_1 INT, ID_Chat_2 INT, Invitacion TEXT, Tipo_Partida INT, Hora_Actualizacion TEXT, V_1 INT, V_2 INT, Respuesta_1 TEXT, Respuesta_2 TEXT)''')
 conexion.commit()
 
+cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V1M) FROM Principal)''')
+nombre = cursor.fetchone()[0]
+print(nombre)
+# client.publish('V1M',nombre)
+cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V3M) FROM Principal)''')
+nombre = cursor.fetchone()[0]
+print(nombre)
+# client.publish('V3M',nombre)
+cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V5M) FROM Principal)''')
+nombre = cursor.fetchone()[0]
+print(nombre)
+# client.publish('V5M',nombre)
+
 # Información del bot y el ID del administrador
 TOKEN = open('bot.txt','r').read() # Archivo que incluye únicamente el token del bot
 bot = telebot.TeleBot(TOKEN)
