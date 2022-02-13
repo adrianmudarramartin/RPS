@@ -9,6 +9,8 @@ import sqlite3
 import time
 from datetime import datetime
 import os
+import paho.mqtt.client as mqtt
+import threading
 
 # Prepara el entorno de trabajo fuera del repositorio
 os.system('libraries.sh')
@@ -343,4 +345,31 @@ def teclado(tipo):
 # Mantenemos el bot a la escucha de mensajes
 bot.send_message(int(ID_Admin), 'El programa se encuentra operativo.')
 time.sleep(0.5)
+def hebra_mqtt():
+    def on_message(client, data, msg):
+        # print(msg.topic + " " + str(msg.payload))
+        cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V1M) FROM Principal)''')
+        print(cursor.fetchone())
+        nombre = cursor.fetchone()[0]
+        print(nombre)
+        client.publish('V1M',nombre)
+        cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V3M) FROM Principal)''')
+        print(cursor.fetchone())
+        nombre = cursor.fetchone()[0]
+        print(nombre)
+        client.publish('V3M',nombre)
+        cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V5M) FROM Principal)''')
+        print(cursor.fetchone())
+        nombre = cursor.fetchone()[0]
+        print(nombre)
+        client.publish('V5M',nombre)
+    
+    client = mqtt.Client("")
+    client.on_message = on_message
+    client.username_pw_set(username="pi", password="patatas")
+    client.connect("localhost", 1883, 60)
+    client.subscribe("request")
+    client.loop_forever()
+hebra = threading.Thread(target=hebra_mqtt)
+hebra.start()
 bot.polling(none_stop=False, interval=0, timeout=300)
