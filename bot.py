@@ -2,7 +2,6 @@
 # Autor: Adrián Mudarra Martín
 
 # Librerías usadas
-from distutils.log import info
 import random
 import telebot
 from telebot import types
@@ -33,7 +32,7 @@ def reboot(message):
     if message.chat.id==int(ID_Admin):
         bot.send_message(int(ID_Admin), 'Reiniciando el sistema para actualizar...')
         time.sleep(10)
-        os.system('reboot')
+        os.system('sudo reboot')
 # INICIO 
 @bot.message_handler(commands=['start'])
 def bienvenida(message):
