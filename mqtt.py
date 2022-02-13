@@ -30,13 +30,14 @@ def on_message(client, data, msg):
     cursor.execute('''SELECT Nombre, MAX(V5A) FROM Principal''')
     nombre = cursor.fetchone()[0]
     client.publish('V5A',nombre)
-    
+
 client = mqtt.Client("")
 client.on_message = on_message
 client.username_pw_set(username="pi", password="patatas")
 client.connect("localhost", 1883, 60)
-client.loop_forever()
 client.subscribe("request")
+client.loop_forever()
+
 
 #try:
 #    while True:
