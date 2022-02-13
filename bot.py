@@ -223,8 +223,8 @@ def partida(message):
                 Cambiar_Estado(info[0], 'INICIO')
                 Cambiar_Estado(info[1], 'INICIO')
                 if (info[6]==1 and info[2]==1) or (info[6]==3 and info[2]==2) or (info[6]==5 and info[2]==3):
-                    bot.send_message(info[0], '🎉🎉 *VICTORIA* 🎉🎉     ('+str(info[2])+' - '+str(info[3])+')\n\n/partida\_vs\_maquina - Inicia una partida contra la máquina.\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
-                    bot.send_message(info[1], '😔😔 *DERROTA* 😔😔     ('+str(info[3])+' - '+str(info[2])+')\n\n/partida\_vs\_maquina - Inicia una partida contra la máquina.\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
+                    bot.send_message(info[0], '🎉🎉 *VICTORIA* 🎉🎉     ('+str(info[2])+' - '+str(info[3])+')\n\n/partida_vs_maquina - Inicia una partida contra la máquina.\n/partida_vs_amigo - Inicia una partida con quien quieras.\n/partida_vs_random - Te empareja con alguien al azar (Mejor de 5)\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
+                    bot.send_message(info[1], '😔😔 *DERROTA* 😔😔     ('+str(info[3])+' - '+str(info[2])+')\n\n/partida_vs_maquina - Inicia una partida contra la máquina.\n/partida_vs_amigo - Inicia una partida con quien quieras.\n/partida_vs_random - Te empareja con alguien al azar (Mejor de 5)\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
                     if info[6]==1:
                         cursor.execute('''UPDATE Principal SET V1A = V1A+1  WHERE ID_Chat = ?''', (info[0], ))
                         cursor.execute('''UPDATE Principal SET D1A = D1A+1  WHERE ID_Chat = ?''', (info[1], ))
@@ -240,8 +240,8 @@ def partida(message):
                             cursor.execute('''UPDATE Principal SET D5R = D5R+1  WHERE ID_Chat = ?''', (info[1], ))
 
                 elif (info[6]==1 and info[3]==1) or (info[6]==3 and info[3]==2) or (info[6]==5 and info[3]==3):
-                    bot.send_message(info[1], '🎉🎉 *VICTORIA* 🎉🎉     ('+str(info[3])+' - '+str(info[2])+')\n\n/partida\_vs\_maquina - Inicia una partida contra la máquina.\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
-                    bot.send_message(info[0], '😔😔 *DERROTA* 😔😔     ('+str(info[2])+' - '+str(info[3])+')\n\n/partida\_vs\_maquina - Inicia una partida contra la máquina.\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
+                    bot.send_message(info[1], '🎉🎉 *VICTORIA* 🎉🎉     ('+str(info[3])+' - '+str(info[2])+')\n\n/partida_vs_maquina - Inicia una partida contra la máquina.\n/partida_vs_amigo - Inicia una partida con quien quieras.\n/partida_vs_random - Te empareja con alguien al azar (Mejor de 5)\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
+                    bot.send_message(info[0], '😔😔 *DERROTA* 😔😔     ('+str(info[2])+' - '+str(info[3])+')\n\n/partida_vs_maquina - Inicia una partida contra la máquina.\n/partida_vs_amigo - Inicia una partida con quien quieras.\n/partida_vs_random - Te empareja con alguien al azar (Mejor de 5)\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
                     if info[6]==1:
                         cursor.execute('''UPDATE Principal SET V1A = V1A+1  WHERE ID_Chat = ?''', (info[1], ))
                         cursor.execute('''UPDATE Principal SET D1A = D1A+1  WHERE ID_Chat = ?''', (info[0], ))  
@@ -314,12 +314,12 @@ def partida(message):
             time.sleep(0.1)
             Cambiar_Estado(message.chat.id, 'INICIO')
             if (est[0]==1 and est[1]==1) or (est[0]==3 and est[1]==2) or (est[0]==5 and est[1]==3):
-                bot.send_message(message.chat.id, '🎉🎉 *VICTORIA* 🎉🎉     ('+str(est[1])+' - '+str(est[2])+')\n\n/partida\_vs\_maquina - Inicia una partida contra la máquina.\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
+                bot.send_message(message.chat.id, '🎉🎉 *VICTORIA* 🎉🎉     ('+str(est[1])+' - '+str(est[2])+')\n\n/partida_vs_maquina - Inicia una partida contra la máquina.\n/partida_vs_amigo - Inicia una partida con quien quieras.\n/partida_vs_random - Te empareja con alguien al azar (Mejor de 5)\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
                 if est[0]==1: cursor.execute('''UPDATE Principal SET V1M = V1M+1  WHERE ID_Chat = ?''', (message.chat.id, ))
                 elif est[0]==3: cursor.execute('''UPDATE Principal SET V3M = V3M+1  WHERE ID_Chat = ?''', (message.chat.id, ))
                 else: cursor.execute('''UPDATE Principal SET V5M = V5M+1  WHERE ID_Chat = ?''', (message.chat.id, ))
             elif (est[0]==1 and est[2]==1) or (est[0]==3 and est[2]==2) or (est[0]==5 and est[2]==3):
-                bot.send_message(message.chat.id, '😔😔 *DERROTA* 😔😔     ('+str(est[1])+' - '+str(est[2])+')\n\n/partida\_vs\_maquina - Inicia una partida contra la máquina.\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
+                bot.send_message(message.chat.id, '😔😔 *DERROTA* 😔😔     ('+str(est[1])+' - '+str(est[2])+')\n\n/partida_vs_maquina - Inicia una partida contra la máquina.\n/partida_vs_amigo - Inicia una partida con quien quieras.\n/partida_vs_random - Te empareja con alguien al azar (Mejor de 5)\n/estadisticas - Muestra tus estadísticas generales.', parse_mode='Markdown', reply_markup=teclado('Off'))
                 if est[0]==1: cursor.execute('''UPDATE Principal SET D1M = D1M+1  WHERE ID_Chat = ?''', (message.chat.id, ))
                 elif est[0]==3: cursor.execute('''UPDATE Principal SET D3M = D3M+1  WHERE ID_Chat = ?''', (message.chat.id, ))
                 else: cursor.execute('''UPDATE Principal SET D5M = D5M+1  WHERE ID_Chat = ?''', (message.chat.id, ))
@@ -390,16 +390,16 @@ def hebra_mqtt():
         cursor.execute('''SELECT Nombre FROM Principal WHERE V1M=(SELECT MAX(V5M) FROM Principal)''')
         nombre = cursor.fetchone()[0]
         client.publish('V5M',nombre)
-        cursor.execute('''SELECT Nombre FROM Principal WHERE V1A=(SELECT MAX(V1M) FROM Principal)''')
+        cursor.execute('''SELECT Nombre FROM Principal WHERE V1A=(SELECT MAX(V1A) FROM Principal)''')
         nombre = cursor.fetchone()[0]
         client.publish('V1A',nombre)
-        cursor.execute('''SELECT Nombre FROM Principal WHERE V3A=(SELECT MAX(V3M) FROM Principal)''')
+        cursor.execute('''SELECT Nombre FROM Principal WHERE V3A=(SELECT MAX(V3A) FROM Principal)''')
         nombre = cursor.fetchone()[0]
         client.publish('V3A',nombre)
-        cursor.execute('''SELECT Nombre FROM Principal WHERE V5A=(SELECT MAX(V5M) FROM Principal)''')
+        cursor.execute('''SELECT Nombre FROM Principal WHERE V5A=(SELECT MAX(V5A) FROM Principal)''')
         nombre = cursor.fetchone()[0]
         client.publish('V5A',nombre)
-        cursor.execute('''SELECT Nombre FROM Principal WHERE V5R=(SELECT MAX(V5M) FROM Principal)''')
+        cursor.execute('''SELECT Nombre FROM Principal WHERE V5R=(SELECT MAX(V5R) FROM Principal)''')
         nombre = cursor.fetchone()[0]
         client.publish('V5R',nombre)
     
