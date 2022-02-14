@@ -43,3 +43,6 @@ Ahora se puede jugar con un amigo también (añadida otra interfaz completa para
 WIP -> Seguir configurando la Raspberry para reiniciarse e inciar el programa (no lo consigo)
 
 WIP -> Investigar Node-red, MQTT y la API de Twitter
+
+# valpha.0.6 14/02/2022
+¡Finalmente! El bot está operativo. Ahora contiene un modo contra random para poder jugar contra cualquier persona. Además, se han realizado todas las interconexiones con Node-red, MQTT y Twitter. Pronto se me ocurrirán cosas para añadir a trabajo futuro. ¡Muchas gracias!
